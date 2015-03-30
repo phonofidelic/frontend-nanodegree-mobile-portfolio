@@ -35,3 +35,10 @@
 .Trashes
 ehthumbs.db
 Thumbs.db
+Gruntfile.js
+node_modules/
+old_README.md
+package.json
+views/Gruntfile.js
+views/package.json
+js/perfmatters.min.js

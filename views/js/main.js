@@ -379,7 +379,7 @@ var pizzaElementGenerator = function(i) {
   pizzaImageContainer.classList.add("col-md-6");
 
   pizzaImage.src = "images/pizza.png";
-  pizzaImage.classList.add("img-responsive");
+  pizzaImage.classList.add("img-responsive", "pizza-image");  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! added pizza-image class
   pizzaImageContainer.appendChild(pizzaImage);
   pizzaContainer.appendChild(pizzaImageContainer);
 
@@ -444,20 +444,21 @@ var resizePizzas = function(size) {
 
     var newsize = sizeSwitcher(size);
     var dx = (newsize - oldsize) * windowwidth;
-
     return dx;
   }
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    for (var i = 0; i < 100; i++) {
-      var dx = determineDx(document.querySelectorAll(".randomPizzaContainer")[i], size);
-      var newwidth = (document.querySelectorAll(".randomPizzaContainer")[i].offsetWidth + dx) + 'px';
-      document.querySelectorAll(".randomPizzaContainer")[i].style.width = newwidth;
+    var allPizzas = document.querySelectorAll(".randomPizzaContainer"); //is an array containing all pizza elements
+    var dx = determineDx(allPizzas[0], size);
+    var newwidth = (allPizzas[0].offsetWidth + dx) + 'px';
+    for (var i = 0; i < allPizzas.length; i++) {
+      allPizzas[i].style.width = newwidth; // 'newwidth' is small: 242.5px, med: 323.301px, large: 485px
     }
   }
 
   changePizzaSizes(size);
+  // console.log(i); // 'i' is allways 100
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
