@@ -449,16 +449,15 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
-    var allPizzas = document.querySelectorAll(".randomPizzaContainer"); //is an array containing all pizza elements
-    var dx = determineDx(allPizzas[0], size);
-    var newwidth = (allPizzas[0].offsetWidth + dx) + 'px';
+    var allPizzas = document.querySelectorAll(".randomPizzaContainer"); //is an array containing all pizza elements.
+    var dx = determineDx(allPizzas[0], size);                 // calculating resizing is performed on the first pizza element
+    var newwidth = (allPizzas[0].offsetWidth + dx) + 'px';    // in allPizzas array instead of all 100 elements.
     for (var i = 0; i < allPizzas.length; i++) {
-      allPizzas[i].style.width = newwidth; // 'newwidth' is small: 242.5px, med: 323.301px, large: 485px
+      allPizzas[i].style.width = newwidth;                    // 'newwidth' value is applied to all elements in allPizzas array.
     }
   }
 
   changePizzaSizes(size);
-  // console.log(i); // 'i' is allways 100
 
   // User Timing API is awesome
   window.performance.mark("mark_end_resize");
@@ -526,7 +525,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
-  for (var i = 0; i < 100; i++) {
+  for (var i = 0; i < 100; i++) {                 // for loop iterates over 100 instead of 200.
     var elem = document.createElement('img');
     elem.className = 'mover';
     elem.src = "images/pizza.png";
