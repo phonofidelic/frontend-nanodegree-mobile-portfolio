@@ -42,3 +42,6 @@ package.json
 views/Gruntfile.js
 views/package.json
 js/perfmatters.min.js
+ngrok
+css/style.css
+css/style.min.css
