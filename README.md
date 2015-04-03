@@ -11,8 +11,10 @@ OPTIMIZATION OF index.html
 
 OPTIMIZATION OF main.js
 
-1) Compressed image file pizzeria.jpg. Changed for-loop in 'uppdatePositions' to iterate ofer 50 items instead of 'items.length'.
+1) Compressed image file pizzeria.jpg.
 
-2) Changed for-loop iteration to 100 in the anonymous function in document.addEventListener('DOMContentLoaded' function(){...}).
+2) Moved 'dx' and 'newwidth' calculations out of for loop in changePizzaSizes and selected the first pizza in the array to perform the calculations on instead of performing the same calculation on 100 pizzas for each re-size.
 
-3) Moved 'dx' and 'newwidth' calculations out of for loop in changePizzaSizes and selected the first pizza in the array to perform the calculations on instead of performing the same calculation on 100 pizzas for each re-size.
+3) Changed for-loop iteration to "Math.round(innerWidth / 73.333)" in the anonymous function in document.addEventListener('DOMContentLoaded' function(){...}).
+
+4) Moved value of calculation out of for-loop in 'updatePositions' and into value "topScroll".
